@@ -1,0 +1,24 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8010/eureka/
+    registerWithEureka: true
+    fetchRegistry: true
+    registry-fetch-interval-seconds: 10
+
+spring:
+  application:
+    name: GATEWAY
+#  cloud:
+#    gateway:
+#      routes:
+#        # SockJS route
+#        - id: websocket_sockjs_route
+#          uri: http://localhost:3001
+#          predicates:
+#            - Path=/websocket/info/**
+#        # Normwal Websocket route
+#        - id: websocket_route
+#          uri: ws://localhost:3001
+#          predicates:
+#            - Path=/websocket/**
