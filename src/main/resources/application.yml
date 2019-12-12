@@ -11,15 +11,22 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: sentence_route
+        - id: sentence_route_health
           uri: lb://SENTENCE:8081
           predicates:
-          - Path=/sentence-service/**
+            - Path=/health
+            - Host= localhost:8080
           filters:
-          - name: Hystrix
-            args:
-              name: fallbackcmd
-              fallbackUri: forward:/fallback
+            - SetPath=/actuator/health
+            - name: Retry
+              args:
+                retries: 3
+
+        - id: sentence_route
+          uri: lb://SENTENCE
+          predicates:
+          - Host= localhost:8080
+          filters:
           - RewritePath=/sentence-service/(?<segment>.*), /$\{segment}
           - name: Retry
             args:
