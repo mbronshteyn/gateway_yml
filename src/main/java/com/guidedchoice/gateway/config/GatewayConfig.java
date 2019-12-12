@@ -9,9 +9,9 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class GatewayConfig {
     // Enable Load Balancing
-    @Bean
+/*    @Bean
     public DiscoveryClientRouteDefinitionLocator
     discoveryClientRouteLocator(DiscoveryClient discoveryClient, DiscoveryLocatorProperties discoveryLocatorProperties ) {
         return new DiscoveryClientRouteDefinitionLocator(discoveryClient, discoveryLocatorProperties );
-    }
+    }*/
 }

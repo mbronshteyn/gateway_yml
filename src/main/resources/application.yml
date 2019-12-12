@@ -12,7 +12,7 @@ spring:
     gateway:
       routes:
         - id: sentence_route
-          uri: lb://SENTENCE
+          uri: lb://SENTENCE:8081
           predicates:
           - Path=/sentence-service/**
           filters:
@@ -27,4 +27,4 @@ spring:
 
 # keep it here for now as temp
 server:
-  port: 8081
+  port: 8080
